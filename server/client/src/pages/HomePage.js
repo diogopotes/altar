@@ -2,8 +2,6 @@ import React from 'react';
 import './HomePage.css'
 
 const HomePage = () => {
-
-
     return (
     <div className='container'>
         <div className="row">
@@ -18,7 +16,6 @@ const HomePage = () => {
         <div className="col s1 card-panel teal lighten-2 cell">9</div>
         <div className="col s1 card-panel teal lighten-2 cell">10</div>
       </div>
-      
       </div>
     )
 

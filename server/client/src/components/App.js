@@ -6,14 +6,12 @@ import PaymentsPage from '../pages/PaymentsPage';
 const App = () => {
 
   return (
-    <div>
       <Router>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route path="/payments" element={<PaymentsPage />} />
         </Routes>
       </Router>
-    </div>
   )
 
 }
