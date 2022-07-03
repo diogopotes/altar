@@ -11,6 +11,8 @@ const HomePage = () => {
 
   const [isGenerated, setIsGenerated] = useState(false);
 
+  const emptyGrid = [["", "", "", "", "", "", "", "", "", ""],["", "", "", "", "", "", "", "", "", ""],["", "", "", "", "", "", "", "", "", ""],["", "", "", "", "", "", "", "", "", ""],["", "", "", "", "", "", "", "", "", ""],["", "", "", "", "", "", "", "", "", ""],["", "", "", "", "", "", "", "", "", ""],["", "", "", "", "", "", "", "", "", ""],["", "", "", "", "", "", "", "", "", ""],["", "", "", "", "", "", "", "", "", ""]]
+
   const { characters } = useSelector((state) => state.characters);
   
   console.log("characters: ", characters);
@@ -31,26 +33,53 @@ const HomePage = () => {
 
     }
 
-  }, [isGenerated])
+  }, [isGenerated, dispatch])
   
     return (
     <div className='container'>
         <div className='header'>
         <CharacterInput />
-        <button onClick={() => setIsGenerated(true)} className="waves-effect waves-light btn">GENERATE 2D GRID</button>
+        <button onClick={() => setIsGenerated(!isGenerated)} className="waves-effect waves-light btn">GENERATE 2D GRID</button>
         </div>
-        <div className="row">
-        <div className="col s1 card-panel teal lighten-2 cell">1</div>
-        <div className="col s1 card-panel teal lighten-2 cell">2</div>
-        <div className="col s1 card-panel teal lighten-2 cell">3</div>
-        <div className="col s1 card-panel teal lighten-2 cell">4</div>
-        <div className="col s1 card-panel teal lighten-2 cell">5</div>
-        <div className="col s1 card-panel teal lighten-2 cell">6</div>
-        <div className="col s1 card-panel teal lighten-2 cell">7</div>
-        <div className="col s1 card-panel teal lighten-2 cell">8</div>
-        <div className="col s1 card-panel teal lighten-2 cell">9</div>
-        <div className="col s1 card-panel teal lighten-2 cell">10</div>
-      </div>
+        {characters.randomCharacters ? characters.randomCharacters.slice(0, characters.randomCharacters.length).map((chr, index) => {
+
+
+                return (
+                  <div className="row" key={index}>
+                     <div className="col s1 card-panel teal lighten-2 cell">{chr[0]}</div>
+                     <div className="col s1 card-panel teal lighten-2 cell">{chr[1]}</div>
+                     <div className="col s1 card-panel teal lighten-2 cell">{chr[2]}</div>
+                     <div className="col s1 card-panel teal lighten-2 cell">{chr[3]}</div>
+                     <div className="col s1 card-panel teal lighten-2 cell">{chr[4]}</div>
+                     <div className="col s1 card-panel teal lighten-2 cell">{chr[5]}</div>
+                     <div className="col s1 card-panel teal lighten-2 cell">{chr[6]}</div>
+                     <div className="col s1 card-panel teal lighten-2 cell">{chr[7]}</div>
+                     <div className="col s1 card-panel teal lighten-2 cell">{chr[8]}</div>
+                     <div className="col s1 card-panel teal lighten-2 cell">{chr[9]}</div>
+                  </div>
+                );
+
+
+
+        }) : emptyGrid.slice(0, emptyGrid.length).map((cell, index) => {
+
+            return(
+              <div className="row" key={index}>
+              <div className="col s1 card-panel teal lighten-2 cell"></div>
+              <div className="col s1 card-panel teal lighten-2 cell"></div>
+              <div className="col s1 card-panel teal lighten-2 cell"></div>
+              <div className="col s1 card-panel teal lighten-2 cell"></div>
+              <div className="col s1 card-panel teal lighten-2 cell"></div>
+              <div className="col s1 card-panel teal lighten-2 cell"></div>
+              <div className="col s1 card-panel teal lighten-2 cell"></div>
+              <div className="col s1 card-panel teal lighten-2 cell"></div>
+              <div className="col s1 card-panel teal lighten-2 cell"></div>
+              <div className="col s1 card-panel teal lighten-2 cell"></div>
+           </div>
+            )
+
+        })}
+
       </div>
     )
 
