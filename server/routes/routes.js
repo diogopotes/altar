@@ -1,3 +1,5 @@
+const charactersController = require('../controllers/characters-controller');
+
 module.exports = (app) => {
 
     app.get('/', (req, res) => {
@@ -12,6 +14,9 @@ module.exports = (app) => {
         res.send({page: "payments"});
     
     })
+
+    
+    app.get('/api/random-characters', charactersController.getRandomCharacters);
 
 
 }

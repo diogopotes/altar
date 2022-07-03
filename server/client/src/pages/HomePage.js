@@ -1,7 +1,26 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import * as charactersActions from '../redux/actions/charactersActions';
+
 import './HomePage.css'
 
 const HomePage = () => {
+
+  const dispatch = useDispatch();
+
+  const loadCharacters = () => {
+
+    dispatch(charactersActions.getRandomCharacters())
+
+  }
+
+  useEffect(() => {
+
+    loadCharacters();
+
+  }, [])
+  
     return (
     <div className='container'>
         <div className="row">

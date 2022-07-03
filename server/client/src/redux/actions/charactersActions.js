@@ -7,6 +7,7 @@ export const getRandomCharacters = () => async (dispatch) => {
 
     const { data } = await axios.get('/api/random-characters');
 
+    console.log("here!")
     console.log(data);
 
     dispatch({
