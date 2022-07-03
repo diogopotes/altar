@@ -1,6 +1,8 @@
 import { ActionTypes } from '../constants/charactersConstants';
 import axios from 'axios';
 
+import qs from 'qs';
+
 export const getRandomCharacters = () => async (dispatch) => {
   try {
     dispatch({ type: ActionTypes.RANDOM_CHARACTERS_REQUEST });
@@ -27,7 +29,13 @@ export const getCode = (grid) => async (dispatch) => {
 
     const { data } = await axios.get('/api/get-code', {params: {
       grid
-    }});
+    },
+    	paramsSerializer: function(params) {
+
+        return qs.stringify(params)
+
+      }
+  });
 
     dispatch({
       type: ActionTypes.GET_CODE_SUCCESS,
