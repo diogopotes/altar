@@ -1,19 +1,29 @@
-.cell {
+.main-wrapper {
 
+    display: flex;
+    flex-direction: column;
+
+}
+
+.cell {
+    float: left;
+    min-width: 60px;
     max-width: 60px;
-    height: 60px;
+    min-height: 60px;
+    max-height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-weight: bold;
+    margin: 10px !important;
     
 }
 
 .header {
-    max-width: 600px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
 }

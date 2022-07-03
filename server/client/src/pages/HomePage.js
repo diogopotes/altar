@@ -55,7 +55,7 @@ const HomePage = () => {
 
     let userInput = event.target.value;
 
-    if(userInput.length === 1) {
+    if(userInput.length === 1 && isNaN(userInput)) {
 
       if(characters.randomCharacters) {
         dispatch(charactersActions.editGrid(userInput))
@@ -73,7 +73,7 @@ const HomePage = () => {
   }
   
     return (
-    <div className='container'>
+    <div className='main-wrapper'>
         <div className='header'>
         <div className="row">
         <div className="input-field col s6">
@@ -87,16 +87,16 @@ const HomePage = () => {
 
         return (
           <div className="row" key={index}>
-            <div className="col s1 card-panel teal lighten-2 cell">{chr[0]}</div>
-            <div className="col s1 card-panel teal lighten-2 cell">{chr[1]}</div>
-            <div className="col s1 card-panel teal lighten-2 cell">{chr[2]}</div>
-            <div className="col s1 card-panel teal lighten-2 cell">{chr[3]}</div>
-            <div className="col s1 card-panel teal lighten-2 cell">{chr[4]}</div>
-            <div className="col s1 card-panel teal lighten-2 cell">{chr[5]}</div>
-            <div className="col s1 card-panel teal lighten-2 cell">{chr[6]}</div>
-            <div className="col s1 card-panel teal lighten-2 cell">{chr[7]}</div>
-            <div className="col s1 card-panel teal lighten-2 cell">{chr[8]}</div>
-            <div className="col s1 card-panel teal lighten-2 cell">{chr[9]}</div>
+            <div className="card-panel teal lighten-2 cell">{chr[0]}</div>
+            <div className="card-panel teal lighten-2 cell">{chr[1]}</div>
+            <div className="card-panel teal lighten-2 cell">{chr[2]}</div>
+            <div className="card-panel teal lighten-2 cell">{chr[3]}</div>
+            <div className="card-panel teal lighten-2 cell">{chr[4]}</div>
+            <div className="card-panel teal lighten-2 cell">{chr[5]}</div>
+            <div className="card-panel teal lighten-2 cell">{chr[6]}</div>
+            <div className="card-panel teal lighten-2 cell">{chr[7]}</div>
+            <div className="card-panel teal lighten-2 cell">{chr[8]}</div>
+            <div className="card-panel teal lighten-2 cell">{chr[9]}</div>
           </div>
         );
 
@@ -107,16 +107,16 @@ const HomePage = () => {
 
                 return (
                   <div className="row" key={index}>
-                     <div className="col s1 card-panel teal lighten-2 cell">{chr[0]}</div>
-                     <div className="col s1 card-panel teal lighten-2 cell">{chr[1]}</div>
-                     <div className="col s1 card-panel teal lighten-2 cell">{chr[2]}</div>
-                     <div className="col s1 card-panel teal lighten-2 cell">{chr[3]}</div>
-                     <div className="col s1 card-panel teal lighten-2 cell">{chr[4]}</div>
-                     <div className="col s1 card-panel teal lighten-2 cell">{chr[5]}</div>
-                     <div className="col s1 card-panel teal lighten-2 cell">{chr[6]}</div>
-                     <div className="col s1 card-panel teal lighten-2 cell">{chr[7]}</div>
-                     <div className="col s1 card-panel teal lighten-2 cell">{chr[8]}</div>
-                     <div className="col s1 card-panel teal lighten-2 cell">{chr[9]}</div>
+                     <div className="card-panel teal lighten-2 cell">{chr[0]}</div>
+                     <div className="card-panel teal lighten-2 cell">{chr[1]}</div>
+                     <div className="card-panel teal lighten-2 cell">{chr[2]}</div>
+                     <div className="card-panel teal lighten-2 cell">{chr[3]}</div>
+                     <div className="card-panel teal lighten-2 cell">{chr[4]}</div>
+                     <div className="card-panel teal lighten-2 cell">{chr[5]}</div>
+                     <div className="card-panel teal lighten-2 cell">{chr[6]}</div>
+                     <div className="card-panel teal lighten-2 cell">{chr[7]}</div>
+                     <div className="card-panel teal lighten-2 cell">{chr[8]}</div>
+                     <div className="card-panel teal lighten-2 cell">{chr[9]}</div>
                   </div>
                 );
 
@@ -126,16 +126,16 @@ const HomePage = () => {
 
             return(
               <div className="row" key={index}>
-              <div className="col s1 card-panel teal lighten-2 cell"></div>
-              <div className="col s1 card-panel teal lighten-2 cell"></div>
-              <div className="col s1 card-panel teal lighten-2 cell"></div>
-              <div className="col s1 card-panel teal lighten-2 cell"></div>
-              <div className="col s1 card-panel teal lighten-2 cell"></div>
-              <div className="col s1 card-panel teal lighten-2 cell"></div>
-              <div className="col s1 card-panel teal lighten-2 cell"></div>
-              <div className="col s1 card-panel teal lighten-2 cell"></div>
-              <div className="col s1 card-panel teal lighten-2 cell"></div>
-              <div className="col s1 card-panel teal lighten-2 cell"></div>
+              <div className="card-panel teal lighten-2 cell"></div>
+              <div className="card-panel teal lighten-2 cell"></div>
+              <div className="card-panel teal lighten-2 cell"></div>
+              <div className="card-panel teal lighten-2 cell"></div>
+              <div className="card-panel teal lighten-2 cell"></div>
+              <div className="card-panel teal lighten-2 cell"></div>
+              <div className="card-panel teal lighten-2 cell"></div>
+              <div className="card-panel teal lighten-2 cell"></div>
+              <div className="card-panel teal lighten-2 cell"></div>
+              <div className="card-panel teal lighten-2 cell"></div>
            </div>
             )
 

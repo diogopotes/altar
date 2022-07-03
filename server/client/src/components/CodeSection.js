@@ -10,7 +10,7 @@ const CodeSection = () => {
     const { code } = useSelector((state) => state.code);
 
     return (
-        <div className='container code-section'>
+        <div className='code-section'>
             <div className='live-section'>
             <FaDotCircle color='red' />
             <h6>LIVE</h6>
