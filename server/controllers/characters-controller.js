@@ -95,5 +95,53 @@ const getCode = (req, res) => {
 
 }
 
+const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+const editGrid = (req, res) => {
+
+    let letter = req.query.letter;
+
+    let arr = [];
+
+    for(let j = 0; j < 100; j++) {
+
+            if(j < 20) {
+
+                arr.push(letter)
+
+            } else {
+
+                const character = generateRandomCharacter();
+
+                arr.push(character);
+
+            }
+
+    }
+
+    shuffleArray(arr);
+
+    let characterGrid = [];
+
+    for(let i = 0; i < arr.length; i+=10) {
+
+        let n10 = arr.slice(i,i+10);
+
+        characterGrid.push(n10);
+
+
+    }
+
+    res.json({newCharacters: characterGrid});
+
+
+}
+
 exports.getRandomCharacters = getRandomCharacters;
 exports.getCode = getCode;
+exports.editGrid = editGrid;

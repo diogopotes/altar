@@ -50,91 +50,28 @@ export const getCode = (grid) => async (dispatch) => {
   }
 };
 
-// // export const getSingleBottle = (bottleId) => async (dispatch) => {
-// //   try {
-// //     dispatch({ type: ActionTypes.BOTTLE_SINGLE_REQUEST });
+export const editGrid = (letter) => async (dispatch) => {
 
-// //     const { data } = await axios.get(
-// //       `http://localhost:3000/bottles/${bottleId}`
-// //     );
+  try {
+    dispatch({ type: ActionTypes.CHARACTERS_EDIT_REQUEST });
 
-// //     dispatch({
-// //       type: ActionTypes.BOTTLE_SINGLE_SUCCESS,
-// //       payload: data,
-// //     });
-// //   } catch (err) {
-// //     dispatch({
-// //       type: ActionTypes.BOTTLE_SINGLE_FAIL,
-// //       payload: err.message,
-// //     });
-// //     console.log(err.message);
-// //   }
-// // };
+    const { data } = await axios.get('/api/edit-grid', {params: {
+      letter
+    }
+  });
 
-// export const addBottle = (btl) => async (dispatch) => {
-//   try {
-//     dispatch({ type: ActionTypes.BOTTLES_ADD_REQUEST });
+    dispatch({
+      type: ActionTypes.CHARACTERS_EDIT_SUCCESS,
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: ActionTypes.CHARACTERS_EDIT_FAIL,
+      payload: err.message,
+    });
+    console.log(err.message);
+  }
 
-//     let bottle = btl;
 
-//     const unique_id = uuid();
+}
 
-//     bottle['id'] = unique_id;
-
-//     const { data } = await axios.post('http://localhost:3000/bottles', bottle);
-
-//     dispatch({
-//       type: ActionTypes.BOTTLES_ADD_SUCCESS,
-//       payload: data,
-//     });
-//   } catch (err) {
-//     dispatch({
-//       type: ActionTypes.BOTTLES_ADD_FAIL,
-//       payload: err.message,
-//     });
-//     console.log(err.message);
-//   }
-// };
-
-// export const editBottle = (bottleId, bottle) => async (dispatch) => {
-//   try {
-//     dispatch({ type: ActionTypes.BOTTLES_EDIT_REQUEST });
-
-//     const { data } = await axios.put(
-//       `http://localhost:3000/bottles/${bottleId}`,
-//       bottle
-//     );
-
-//     dispatch({
-//       type: ActionTypes.BOTTLES_EDIT_SUCCESS,
-//       payload: data,
-//     });
-//   } catch (err) {
-//     dispatch({
-//       type: ActionTypes.BOTTLES_EDIT_FAIL,
-//       payload: err.message,
-//     });
-//     console.log(err.message);
-//   }
-// };
-
-// export const deleteBottle = (bottleId) => async (dispatch) => {
-//   try {
-//     dispatch({ type: ActionTypes.BOTTLES_DELETE_REQUEST });
-
-//     const { data } = await axios.delete(
-//       `http://localhost:3000/bottles/${bottleId}`
-//     );
-
-//     dispatch({
-//       type: ActionTypes.BOTTLES_DELETE_SUCCESS,
-//       payload: data,
-//     });
-//   } catch (err) {
-//     dispatch({
-//       type: ActionTypes.BOTTLES_DELETE_FAIL,
-//       payload: err.message,
-//     });
-//     console.log(err.message);
-//   }
-// };
