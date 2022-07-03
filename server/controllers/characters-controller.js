@@ -49,17 +49,41 @@ const getCode = async (req, res) => {
 
     let lastLetter = grid[lastNumber][firstNumber];
 
+    let countFirst = 0;
 
-    console.log("seconds: ", seconds);
+    let countLast = 0;
 
-    console.log("first : ", firstNumber);
+    grid.map((arr) => {
 
-    console.log("last: ", lastNumber);
+        if(arr.includes(firstLetter)) {
 
-    console.log("first letter: ", firstLetter);
+            countFirst++;
 
-    console.log("last letter: ", lastLetter);
+        }
 
+        if(arr.includes(lastLetter)) {
+
+            countLast++;
+
+        }
+
+    })
+
+    if(countFirst > 9) {
+
+        countFirst = 9;
+
+    }
+
+    if(countLast > 9) {
+
+        countLast = 9;
+
+    }
+
+    let digits = countFirst.toString() + countLast.toString();
+
+    res.json({code: digits});
 
 }
 

@@ -3,8 +3,11 @@ import { FaDotCircle } from 'react-icons/fa';
 
 import './CodeSection.css'
 
+import { useSelector } from 'react-redux';
+
 const CodeSection = () => {
 
+    const { code } = useSelector((state) => state.code);
 
     return (
         <div className='container code-section'>
@@ -14,7 +17,7 @@ const CodeSection = () => {
             </div>
             <div className='code'>
                 <h4>Your Code :</h4>
-                <h4 className='number'><strong>11</strong></h4>
+                <h4 className='number'><strong>{code && code.code}</strong></h4>
             </div>
         </div>
     )
