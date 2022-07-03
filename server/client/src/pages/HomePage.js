@@ -7,6 +7,8 @@ import './HomePage.css'
 
 import CharacterInput from '../components/CharacterInput';
 
+import CodeSection from '../components/CodeSection';
+
 const HomePage = () => {
 
   const [isGenerated, setIsGenerated] = useState(false);
@@ -79,6 +81,8 @@ const HomePage = () => {
             )
 
         })}
+
+        <CodeSection />
 
       </div>
     )

@@ -1,0 +1,31 @@
+.code-section {
+    min-height: 200px;
+}
+
+.live-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 30%;
+}
+
+h6 {
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.code {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    width: fit-content;
+    padding: 5px 30px;
+}
+
+.number {
+    margin-left: 10px;
+}
