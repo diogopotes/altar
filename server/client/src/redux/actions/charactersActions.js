@@ -7,8 +7,6 @@ export const getRandomCharacters = () => async (dispatch) => {
 
     const { data } = await axios.get('/api/random-characters');
 
-    console.log(data);
-
     dispatch({
       type: ActionTypes.RANDOM_CHARACTERS_SUCCESS,
       payload: data,

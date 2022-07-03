@@ -9,7 +9,7 @@ export const randomCharactersReducer = (
       return { ...state, loading: true };
 
     case ActionTypes.RANDOM_CHARACTERS_SUCCESS:
-      return { loading: false, bottles: payload };
+      return { loading: false, characters: payload };
 
     case ActionTypes.RANDOM_CHARACTERS_FAIL:
       return { loading: false, error: payload };

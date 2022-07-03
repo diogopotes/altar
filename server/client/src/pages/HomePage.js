@@ -11,20 +11,21 @@ const HomePage = () => {
 
   const [isGenerated, setIsGenerated] = useState(false);
 
+  const { characters } = useSelector((state) => state.characters);
+  
+  console.log("characters: ", characters);
+
   const dispatch = useDispatch();
-
-  const getCharacters = () => {
-
-    dispatch(charactersActions.getRandomCharacters())
-
-  }
 
   useEffect(() => {
 
     if(isGenerated) {
 
       const interval = setInterval(() => {
-        getCharacters();
+        
+        dispatch(charactersActions.getRandomCharacters())
+
+
       }, 2000);
       return () => clearInterval(interval);
 
