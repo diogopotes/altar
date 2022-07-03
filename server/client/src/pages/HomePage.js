@@ -5,8 +5,6 @@ import * as charactersActions from '../redux/actions/charactersActions';
 
 import './HomePage.css'
 
-import CharacterInput from '../components/CharacterInput';
-
 import CodeSection from '../components/CodeSection';
 
 const HomePage = () => {
@@ -53,10 +51,23 @@ const HomePage = () => {
 
 
 
-  function edit() {
+  function editGrid(event) {
 
-    if(characters.randomCharacters) {
-      dispatch(charactersActions.editGrid("a"))
+    let userInput = event.target.value;
+
+    if(userInput.length === 1) {
+
+      if(characters.randomCharacters) {
+        dispatch(charactersActions.editGrid(userInput))
+        
+        setTimeout(() => {
+
+          document.getElementById('letter-input').value = '';
+
+        }, 4000)
+      }
+
+
     }
 
   }
@@ -64,8 +75,11 @@ const HomePage = () => {
     return (
     <div className='container'>
         <div className='header'>
-        <button onClick={() => edit()}>CLICK</button>
-        <CharacterInput />
+        <div className="row">
+        <div className="input-field col s6">
+          <input onChange={editGrid} placeholder="Character" id="letter-input" type="text" className="validate" />
+        </div>
+      </div>
         <button onClick={() => setIsGenerated(!isGenerated)} className="waves-effect waves-light btn">GENERATE 2D GRID</button>
         </div>
         {characters.newCharacters ? characters.newCharacters.slice(0, characters.newCharacters.length).map((chr, index) => {
