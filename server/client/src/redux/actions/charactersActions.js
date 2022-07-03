@@ -24,8 +24,9 @@ export const getCode = (grid) => async (dispatch) => {
   try {
     dispatch({ type: ActionTypes.GET_CODE_REQUEST });
 
+
     const { data } = await axios.get('/api/get-code', {params: {
-      grid: grid
+      grid
     }});
 
     dispatch({

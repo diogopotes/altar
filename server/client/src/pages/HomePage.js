@@ -17,8 +17,6 @@ const HomePage = () => {
 
   const { characters } = useSelector((state) => state.characters);
   
-  console.log("characters: ", characters);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,9 +34,10 @@ const HomePage = () => {
 
   }, [isGenerated, dispatch])
 
+
   useEffect(() => {
 
-    if(characters.randomCharacters) {
+    if(characters) {
 
       dispatch(charactersActions.getCode(characters.randomCharacters))
 

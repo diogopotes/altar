@@ -36,7 +36,32 @@ const generateRandomCharacter = () => {
 
 const getCode = (req, res) => {
 
-    console.log(req.query.grid)
+    const grid = req.query.grid;
+
+    const date = new Date();
+    let seconds = date.getSeconds().toString();
+
+    let firstNumber = parseInt(seconds[0]);
+
+    let lastNumber = parseInt(seconds[1]);
+
+    console.log("grid from controller")
+    console.log(grid);
+
+    // let firstLetter = grid[firstNumber][lastNumber];
+
+    // let lastLetter = grid[lastNumber][firstNumber];
+
+
+    // console.log("seconds: ", seconds);
+
+    // console.log("first : ", firstNumber);
+
+    // console.log("last: ", lastNumber);
+
+    // console.log("first letter: ", firstLetter);
+
+    // console.log("last letter: ", lastLetter);
 
 
 }
