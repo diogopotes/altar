@@ -22,8 +22,6 @@ const getRandomCharacters = (req, res) => {
 
     res.json({randomCharacters: characterGrid});
 
-
-
 }
 
 const generateRandomCharacter = () => {
@@ -36,4 +34,12 @@ const generateRandomCharacter = () => {
 
 }
 
+const getCode = (req, res) => {
+
+    console.log(req.query.grid)
+
+
+}
+
 exports.getRandomCharacters = getRandomCharacters;
+exports.getCode = getCode;

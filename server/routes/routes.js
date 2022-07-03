@@ -18,6 +18,7 @@ module.exports = (app) => {
     
     app.get('/api/random-characters', charactersController.getRandomCharacters);
 
+    app.get('/api/get-code', charactersController.getCode)
 
 }
 

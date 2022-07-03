@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
-import { randomCharactersReducer } from './charactersReducers';
+import { randomCharactersReducer, codeReducer } from './charactersReducers';
 
 const reducers = combineReducers({
-  characters: randomCharactersReducer
+  characters: randomCharactersReducer,
+  code: codeReducer
 });
 
 export default reducers;

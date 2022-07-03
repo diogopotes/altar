@@ -28,14 +28,23 @@ const HomePage = () => {
       const interval = setInterval(() => {
         
         dispatch(charactersActions.getRandomCharacters())
-
-
+        
       }, 2000);
       return () => clearInterval(interval);
 
     }
 
   }, [isGenerated, dispatch])
+
+  useEffect(() => {
+
+    if(characters.randomCharacters) {
+
+      dispatch(charactersActions.getCode(characters.randomCharacters))
+
+    }
+
+  }, [characters, dispatch])
   
     return (
     <div className='container'>

@@ -19,6 +19,26 @@ export const randomCharactersReducer = (
   }
 };
 
+export const codeReducer = (
+  state = { code: null },
+  { type, payload }
+) => {
+  switch (type) {
+    case ActionTypes.GET_CODE_REQUEST:
+      return { ...state, loading: true };
+
+    case ActionTypes.GET_CODE_SUCCESS:
+      return { loading: false, code: payload };
+
+    case ActionTypes.GET_CODE_FAIL:
+      return { loading: false, error: payload };
+
+    default:
+      return state;
+  }
+};
+
+
 // export const bottleReducer = (state = { bottle: {} }, { type, payload }) => {
 //   switch (type) {
 //     case ActionTypes.BOTTLES_ADD_REQUEST:

@@ -20,26 +20,47 @@ export const getRandomCharacters = () => async (dispatch) => {
   }
 };
 
-// export const getSingleBottle = (bottleId) => async (dispatch) => {
-//   try {
-//     dispatch({ type: ActionTypes.BOTTLE_SINGLE_REQUEST });
+export const getCode = (grid) => async (dispatch) => {
+  try {
+    dispatch({ type: ActionTypes.GET_CODE_REQUEST });
 
-//     const { data } = await axios.get(
-//       `http://localhost:3000/bottles/${bottleId}`
-//     );
+    const { data } = await axios.get('/api/get-code', {params: {
+      grid: grid
+    }});
 
-//     dispatch({
-//       type: ActionTypes.BOTTLE_SINGLE_SUCCESS,
-//       payload: data,
-//     });
-//   } catch (err) {
-//     dispatch({
-//       type: ActionTypes.BOTTLE_SINGLE_FAIL,
-//       payload: err.message,
-//     });
-//     console.log(err.message);
-//   }
-// };
+    dispatch({
+      type: ActionTypes.GET_CODE_SUCCESS,
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: ActionTypes.GET_CODE_FAIL,
+      payload: err.message,
+    });
+    console.log(err.message);
+  }
+};
+
+// // export const getSingleBottle = (bottleId) => async (dispatch) => {
+// //   try {
+// //     dispatch({ type: ActionTypes.BOTTLE_SINGLE_REQUEST });
+
+// //     const { data } = await axios.get(
+// //       `http://localhost:3000/bottles/${bottleId}`
+// //     );
+
+// //     dispatch({
+// //       type: ActionTypes.BOTTLE_SINGLE_SUCCESS,
+// //       payload: data,
+// //     });
+// //   } catch (err) {
+// //     dispatch({
+// //       type: ActionTypes.BOTTLE_SINGLE_FAIL,
+// //       payload: err.message,
+// //     });
+// //     console.log(err.message);
+// //   }
+// // };
 
 // export const addBottle = (btl) => async (dispatch) => {
 //   try {
