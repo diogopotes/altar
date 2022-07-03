@@ -1,13 +1,13 @@
 import { ActionTypes } from '../constants/charactersConstants';
 import axios from 'axios';
 
+import qs from 'qs';
+
 export const getRandomCharacters = () => async (dispatch) => {
   try {
     dispatch({ type: ActionTypes.RANDOM_CHARACTERS_REQUEST });
 
     const { data } = await axios.get('/api/random-characters');
-
-    console.log(data);
 
     dispatch({
       type: ActionTypes.RANDOM_CHARACTERS_SUCCESS,
@@ -22,91 +22,56 @@ export const getRandomCharacters = () => async (dispatch) => {
   }
 };
 
-// export const getSingleBottle = (bottleId) => async (dispatch) => {
-//   try {
-//     dispatch({ type: ActionTypes.BOTTLE_SINGLE_REQUEST });
+export const getCode = (grid) => async (dispatch) => {
+  try {
+    dispatch({ type: ActionTypes.GET_CODE_REQUEST });
 
-//     const { data } = await axios.get(
-//       `http://localhost:3000/bottles/${bottleId}`
-//     );
 
-//     dispatch({
-//       type: ActionTypes.BOTTLE_SINGLE_SUCCESS,
-//       payload: data,
-//     });
-//   } catch (err) {
-//     dispatch({
-//       type: ActionTypes.BOTTLE_SINGLE_FAIL,
-//       payload: err.message,
-//     });
-//     console.log(err.message);
-//   }
-// };
+    const { data } = await axios.get('/api/get-code', {params: {
+      grid
+    },
+    	paramsSerializer: function(params) {
 
-// export const addBottle = (btl) => async (dispatch) => {
-//   try {
-//     dispatch({ type: ActionTypes.BOTTLES_ADD_REQUEST });
+        return qs.stringify(params)
 
-//     let bottle = btl;
+      }
+  });
 
-//     const unique_id = uuid();
+    dispatch({
+      type: ActionTypes.GET_CODE_SUCCESS,
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: ActionTypes.GET_CODE_FAIL,
+      payload: err.message,
+    });
+    console.log(err.message);
+  }
+};
 
-//     bottle['id'] = unique_id;
+export const editGrid = (letter) => async (dispatch) => {
 
-//     const { data } = await axios.post('http://localhost:3000/bottles', bottle);
+  try {
+    dispatch({ type: ActionTypes.CHARACTERS_EDIT_REQUEST });
 
-//     dispatch({
-//       type: ActionTypes.BOTTLES_ADD_SUCCESS,
-//       payload: data,
-//     });
-//   } catch (err) {
-//     dispatch({
-//       type: ActionTypes.BOTTLES_ADD_FAIL,
-//       payload: err.message,
-//     });
-//     console.log(err.message);
-//   }
-// };
+    const { data } = await axios.get('/api/edit-grid', {params: {
+      letter
+    }
+  });
 
-// export const editBottle = (bottleId, bottle) => async (dispatch) => {
-//   try {
-//     dispatch({ type: ActionTypes.BOTTLES_EDIT_REQUEST });
+    dispatch({
+      type: ActionTypes.CHARACTERS_EDIT_SUCCESS,
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: ActionTypes.CHARACTERS_EDIT_FAIL,
+      payload: err.message,
+    });
+    console.log(err.message);
+  }
 
-//     const { data } = await axios.put(
-//       `http://localhost:3000/bottles/${bottleId}`,
-//       bottle
-//     );
 
-//     dispatch({
-//       type: ActionTypes.BOTTLES_EDIT_SUCCESS,
-//       payload: data,
-//     });
-//   } catch (err) {
-//     dispatch({
-//       type: ActionTypes.BOTTLES_EDIT_FAIL,
-//       payload: err.message,
-//     });
-//     console.log(err.message);
-//   }
-// };
+}
 
-// export const deleteBottle = (bottleId) => async (dispatch) => {
-//   try {
-//     dispatch({ type: ActionTypes.BOTTLES_DELETE_REQUEST });
-
-//     const { data } = await axios.delete(
-//       `http://localhost:3000/bottles/${bottleId}`
-//     );
-
-//     dispatch({
-//       type: ActionTypes.BOTTLES_DELETE_SUCCESS,
-//       payload: data,
-//     });
-//   } catch (err) {
-//     dispatch({
-//       type: ActionTypes.BOTTLES_DELETE_FAIL,
-//       payload: err.message,
-//     });
-//     console.log(err.message);
-//   }
-// };

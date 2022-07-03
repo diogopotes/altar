@@ -1,3 +1,5 @@
+const charactersController = require('../controllers/characters-controller');
+
 module.exports = (app) => {
 
     app.get('/', (req, res) => {
@@ -13,6 +15,12 @@ module.exports = (app) => {
     
     })
 
+    
+    app.get('/api/random-characters', charactersController.getRandomCharacters);
+
+    app.get('/api/edit-grid', charactersController.editGrid);
+
+    app.get('/api/get-code', charactersController.getCode)
 
 }
 
