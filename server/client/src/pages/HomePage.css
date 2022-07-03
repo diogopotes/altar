@@ -1,11 +1,19 @@
 .cell {
 
-    max-width: 60px;
-    height: 60px;
+    max-width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-weight: bold;
     
+}
+
+.header {
+    max-width: 800px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }

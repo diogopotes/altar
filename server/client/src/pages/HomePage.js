@@ -5,11 +5,15 @@ import * as charactersActions from '../redux/actions/charactersActions';
 
 import './HomePage.css'
 
+import CharacterInput from '../components/CharacterInput';
+
 const HomePage = () => {
+
+  const [isGenerated, setIsGenerated] = useState(false);
 
   const dispatch = useDispatch();
 
-  const loadCharacters = () => {
+  const getCharacters = () => {
 
     dispatch(charactersActions.getRandomCharacters())
 
@@ -17,12 +21,23 @@ const HomePage = () => {
 
   useEffect(() => {
 
-    loadCharacters();
+    if(isGenerated) {
 
-  }, [])
+      const interval = setInterval(() => {
+        getCharacters();
+      }, 2000);
+      return () => clearInterval(interval);
+
+    }
+
+  }, [isGenerated])
   
     return (
     <div className='container'>
+        <div className='header'>
+        <CharacterInput />
+        <button onClick={() => setIsGenerated(true)} className="waves-effect waves-light btn">GENERATE 2D GRID</button>
+        </div>
         <div className="row">
         <div className="col s1 card-panel teal lighten-2 cell">1</div>
         <div className="col s1 card-panel teal lighten-2 cell">2</div>
