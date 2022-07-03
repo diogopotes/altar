@@ -34,20 +34,28 @@ const generateRandomCharacter = () => {
 
 }
 
-const getCode = async (req, res) => {
+const getCode = (req, res) => {
 
     const grid = req.query.grid;
 
     const date = new Date();
-    let seconds = await date.getSeconds().toString();
+    let seconds = date.getSeconds().toString();
 
-    let firstNumber = parseInt(seconds[0]);
+    let firstNumber = 0;
 
-    let lastNumber = parseInt(seconds[1]);
+    let lastNumber = 0;
 
-    let firstLetter = grid[firstNumber][lastNumber];
+    firstNumber = parseInt(seconds[0]);
 
-    let lastLetter = grid[lastNumber][firstNumber];
+    lastNumber = parseInt(seconds[1]);
+
+    let firstLetter = "";
+
+    let lastLetter = "";
+
+    firstLetter = grid[firstNumber][lastNumber];
+
+    lastLetter = grid[lastNumber][firstNumber];
 
     let countFirst = 0;
 
