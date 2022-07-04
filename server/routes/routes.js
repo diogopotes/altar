@@ -7,14 +7,6 @@ module.exports = (app) => {
         res.send({hi: 'there'});
     
     })
-
-
-    app.get('/payments', (req, res) => {
-
-        res.send({page: "payments"});
-    
-    })
-
     
     app.get('/api/random-characters', charactersController.getRandomCharacters);
 
