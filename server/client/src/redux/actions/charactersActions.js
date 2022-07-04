@@ -5,8 +5,7 @@ import qs from 'qs';
 
 export const getRandomCharacters = () => async (dispatch) => {
   try {
-    dispatch({ type: ActionTypes.RANDOM_CHARACTERS_REQUEST });
-
+    
     const { data } = await axios.get('/api/random-characters');
 
     dispatch({
@@ -18,14 +17,11 @@ export const getRandomCharacters = () => async (dispatch) => {
       type: ActionTypes.RANDOM_CHARACTERS_FAIL,
       payload: err.message,
     });
-    console.log(err.message);
   }
 };
 
 export const getCode = (grid) => async (dispatch) => {
   try {
-    dispatch({ type: ActionTypes.GET_CODE_REQUEST });
-
 
     const { data } = await axios.get('/api/get-code', {params: {
       grid
@@ -46,14 +42,12 @@ export const getCode = (grid) => async (dispatch) => {
       type: ActionTypes.GET_CODE_FAIL,
       payload: err.message,
     });
-    console.log(err.message);
   }
 };
 
 export const editGrid = (letter) => async (dispatch) => {
 
   try {
-    dispatch({ type: ActionTypes.CHARACTERS_EDIT_REQUEST });
 
     const { data } = await axios.get('/api/edit-grid', {params: {
       letter
@@ -69,7 +63,6 @@ export const editGrid = (letter) => async (dispatch) => {
       type: ActionTypes.CHARACTERS_EDIT_FAIL,
       payload: err.message,
     });
-    console.log(err.message);
   }
 
 
